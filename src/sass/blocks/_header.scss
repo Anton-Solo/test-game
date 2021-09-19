@@ -1,0 +1,287 @@
+.header {
+    .header__wrapper {
+        background: rgba(0, 0, 0, 0.25);
+        padding: 19px 0 17px;
+        @media (max-width: 768px) {
+            position: relative;
+            z-index: 1;
+            background: none;
+            padding: 10px 0 0;
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                z-index: -1;
+                width: 100%;
+                height: 100%;
+                background: #181723;
+            }
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                z-index: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(255, 255, 255, 0.1);
+                height: 66px;
+            }
+        }
+        .tabs-mobile {
+            display: none;
+            @media (max-width: 768px) {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background: rgba(24, 23, 35, 0.9);
+                height: 48px;
+                .tabs__item {
+                    font-family: 'LeksaSans-Bold';
+                    font-weight: bold;
+                    font-size: 14px;
+                    line-height: 14px;
+                    color: #9794C6;
+                    text-decoration: none;
+                    padding: 0 15px;
+                    
+                    &.active {
+                        color: #ffffff;
+                        position: relative;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        text-align: center;
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            top: auto;
+                            bottom: 0;
+                            width: 70%;
+                            height: 3px;
+                            width: 70%;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            background: linear-gradient(90deg, #F52CBF 0%, #FF7C46 100%);
+                           
+                        }
+                        &:hover {
+                            &::before {
+                                width: 100%;
+                                transition: 2s;
+                            }
+                        }
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            top: auto;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            height: 3px;
+                            background: linear-gradient(90deg, rgba(245, 44, 191, 0.2) 0%, rgba(255, 124, 70, 0.2) 100%);
+                        }
+                    }
+                }
+            }
+            @media (max-width:447px) {
+                .tabs__item {
+                    padding: 0 5px;
+                }
+            }
+        }
+        .header__body {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .header__back {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                border-radius: 50px;
+                height: 54px;
+                width: 139px;
+                background: url(../../img/cards/button-back.png);
+                @media (max-width: 768px) {
+                    background: none;
+                    justify-content: flex-start;
+                }
+                &:hover {
+                    background: rgba(255, 255, 255, 0.5);
+                    transition: 1s;
+                }
+                img {
+                    margin-left: -20px;
+                    @media (max-width:768px) {
+                        margin-left: 0px;
+                    }
+                }
+                span {
+                    font-family: 'LeksaSans-Bold';
+                    font-weight: bold;
+                    font-size: 18px;
+                    line-height: 22px;
+                    text-transform: uppercase;
+                    color: #FFFFFF;
+                    margin-left: 11.33px;
+                    @media (max-width: 768px) {
+                        display: none;
+                    }
+                }
+            }
+            .header__main {
+                display: flex;
+                align-items: center;
+                @media (max-width: 768px) {
+                    flex-shrink: 0;
+                    width: 220px;
+                }
+                .header__main-item {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    background: rgba(13, 11, 15, 0.5);
+                    border-radius: 100px;
+                    flex-basis: 198px;
+                    flex-shrink: 0;
+                    height: 44px;
+                    cursor: pointer;
+                    @media (max-width: 768px) {
+                        flex-basis: 70px;
+                        height: 30px;
+                        background: rgba(13, 11, 15, 1);
+                        border-radius: 100px 0px 0px 100px;
+                    }
+                    @media (max-width: 544px) {
+                        height: 20px;
+                    }
+                    &:hover {
+                        background: rgba(13, 11, 15, 0.9);
+                        transition: 1s;
+                    }
+                    div {
+                        display: flex;
+                        flex-direction: column;
+                        span {
+                            &:first-child {
+                                font-family: 'LeksaSans-Bold';
+                                font-weight: bold;
+                                font-size: 18px;
+                                line-height: 22px;
+                                color: #FFFFFF;
+                                @media (max-width: 768px) {
+                                    font-size: 13px;
+                                    line-height: 16px;
+                                }
+                            }
+                            &:nth-child(2) {
+                                font-weight: 500;
+                                font-size: 10px;
+                                line-height: 12px;
+                                color: #B9B7EA;
+                                @media (max-width: 768px) {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                    img.plus {
+                        cursor: pointer;
+                        @media (max-width: 768px) {
+                            position: absolute;
+                            right: -40px;
+                            top: -14px;
+                            width: 58px;
+                        }
+                        @media (max-width: 544px) {
+                            position: absolute;
+                            right: -29px;
+                            top: -10px;
+                            width: 41px;
+                        }
+                    }
+                }
+                .header__main-item._item-coins {
+                    margin-right: 47px;
+                    @media (max-width : 768px) {
+                        margin-left: 15px;
+                    }
+                    img.coins {
+                        position: absolute;
+                        left: -11px;
+                        width: 69px;
+                        height: 69px;
+                        @media (max-width: 768px) {
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+                    div {
+                        margin-left: 64px;
+                        @media (max-width : 768px) {
+                            margin-left: 23px;
+                        }
+                    }
+                }
+                .header__main-item._item-crystals {
+                    img.crystals {
+                        position: absolute;
+                        left: -11px;
+                        width: 82px;
+                        height: 82px;
+                        @media (max-width: 768px) {
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+                    div {
+                        margin-left: 82px;
+                        @media (max-width : 768px) {
+                            margin-left: 23px;
+                        }
+                    }
+                }
+            }
+            .header__home {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50px;
+                cursor: pointer;
+                background: url(../../img/cards/button-home.png);
+                height: 54px;
+                width: 139px;
+                @media (max-width : 768px) {
+                    background: none;
+                    justify-content: flex-end;
+                }
+                &:hover {
+                    background: rgba(255, 255, 255, 0.5);
+                    transition: 1s;
+                }
+                img {
+                    width: 28px;
+                    height: 28px;
+                    @media (max-width : 768px) {
+                        width: 48px;
+                        height: 48px;
+                    }
+                }
+                span {
+                    font-family: 'LeksaSans-Bold';
+                    font-weight: bold;
+                    font-size: 18px;
+                    line-height: 22px;
+                    text-transform: uppercase;
+                    color: #FFFFFF;
+                    margin-left: 10px;
+                    @media (max-width : 768px) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

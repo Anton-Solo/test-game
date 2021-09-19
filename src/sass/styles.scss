@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(../img/background.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    @media (max-width: 1200px) {
+        background-size: unset;
+    }
+}
+* ,
+*:before,
+*:after {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    outline: none
+}
+@font-face {
+    font-family: 'LeksaSans-Bold';
+    src: url("../fonts/LeksaSans-Bold.otf") format("opentype");
+}
+.h2 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 37px;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0 0 24px;
+}
+.main__container {
+    padding: 0 15px;
+    margin: 0 auto;
+    @media (min-width: 360px) {
+        width: 320px;
+    }
+    @media (min-width: 460px) {
+        width: 440px;
+    }
+    @media (min-width: 576px) {
+        width: 540px;
+    }
+    @media (min-width: 768px) {
+        width: 720px;
+    }
+    @media (min-width: 992px) {
+        width: 960px;
+    }
+    @media (min-width: 1200px) {
+        width: 1140px;
+    }
+}
+.header__container {
+    @media (min-width:1400px) {
+        width: 1316px;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+}
+
+@import 'blocks/header';
+@import 'blocks/main';

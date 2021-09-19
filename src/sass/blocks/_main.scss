@@ -1,0 +1,418 @@
+.main {
+    position: relative;
+    .main__overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 103%;
+        background: linear-gradient( transparent , rgba(22, 21, 31, 1) 500px);
+        z-index: 1;
+    }
+    &__tabs {
+        position: relative;
+        z-index: 2;
+        margin-top: 10px;
+        .tabs {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            @media (max-width: 768px) {
+                display: none;
+            }
+            .tabs__item {
+                font-family: 'LeksaSans-Bold';
+                display: block;
+                background: #212031;
+                border-radius: 10px 10px 0px 0px;
+                font-weight: bold;
+                font-size: 20px;
+                line-height: 25px;
+                text-align: center;
+                color: #9794C6;
+                padding: 14px 0 15px;
+                max-width: 188px;
+                width: 100%;
+                text-decoration: none;
+                @media (max-width: 992px) {
+                    font-size: 16px;
+                }
+                &:not(:last-child) {
+                    margin-right: 10px;
+                }
+                &:hover {
+                    color: #FFFFFF;
+                    transition: 1s;
+                }
+                &.active {
+                    color: #FFFFFF;
+                    position: relative;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: auto;
+                        bottom: 0;
+                        width: 70%;
+                        height: 3px;
+                        width: 70%;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background: linear-gradient(90deg, #F52CBF 0%, #FF7C46 100%);
+                       
+                    }
+                    &:hover {
+                        &::before {
+                            width: 100%;
+                            transition: 2s;
+                        }
+                    }
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: auto;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        height: 3px;
+                        background: linear-gradient(90deg, rgba(245, 44, 191, 0.2) 0%, rgba(255, 124, 70, 0.2) 100%);
+                    }
+                }
+            }
+        }
+        .cards {
+            display: none;
+            background: #242333;
+            box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.5);
+            border-radius: 0px 0px 10px 10px;
+            padding: 24px 26px 0;
+            @media (max-width: 1200px) {
+                padding: 24px 15px 0;
+            }
+            @media (max-width: 992px) {
+                padding: 24px 10.5px 0;
+            }
+            @media (max-width: 768px) {
+                padding-top: 18px;
+                .h2 {
+                    display: none;
+                }
+            }
+            &._tab-default {
+                display: block;
+            }
+            &._bank {
+                height: 560px;
+                overflow-x: auto;
+                scrollbar-color: rgba(151, 148, 198, 0.8) transparent;
+                scrollbar-width: 3px;
+                box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.5);
+                &::-webkit-scrollbar {
+                    background-color: transparent;
+                    width: 3px;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background: rgba(151, 148, 198, 0.8);
+                }
+                .cards__wrapper {
+                    &._crystals-wrapper {
+                        margin: 0;
+                        border-bottom: 0;
+                    }
+                }
+            }
+            .cards__wrapper {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-row-gap: 20px;
+                padding-bottom: 30px;
+                justify-items: center;
+                @media (max-width: 992px) {
+                    grid-template-columns: 1fr 1fr 1fr;
+                }
+                 @media (max-width: 460px) {
+                    grid-template-columns: 1fr 1fr;
+                }
+                &._crystals-wrapper {
+                    margin-bottom: 30px;
+                    border-bottom: 1px solid rgba(151, 148, 198, 0.1);
+                }
+                .cards-item {
+                    position: relative;
+                    background-image: url(../../img/card-bg.png);
+                    background-color: linear-gradient(180deg, rgba(68, 67, 92, 0) 29.69%, rgba(36, 35, 51, 0) 57.29%, #242333 100%);
+                    border-radius: 15px;
+                    width: 217px;
+                    height: 299px;
+                    padding: 0 0 15px;
+                    z-index: 3;
+                    @media (max-width: 768px) {
+                        width: 124px;
+                        height: 171px;
+                        background-size: 100%;
+                    }
+                    .cards-item__border {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        z-index: 4;
+                        width: 100%;
+                    }
+                    .cards-item__arrow {
+                        position: absolute;
+                        @media (max-width: 768px) {
+                            width: 10%;
+                        }
+                        &.cards-item__arrow-left {
+                            left: 4px;
+                            top: 46%;
+                            @media (max-width: 768px) {
+                                left: 3px;
+                            }
+                        }
+                        &.cards-item__arrow-right {
+                            right: 4px;
+                            top: 46%;
+                            transform: rotate(-180deg);
+                            @media (max-width: 768px) {
+                                right: 3px;
+                            }
+                        }
+                        &.cards-item__arrow-top {
+                            top: -5px;
+                            left: 46%;
+                            transform: rotate(90deg);
+                            @media (max-width: 768px) {
+                                top: -7px;
+                            }
+                        }
+                        &.cards-item__arrow-bottom {
+                            bottom: -5px;
+                            left: 46%;
+                            transform: rotate(-90deg);
+                            @media (max-width: 768px) {
+                                bottom: -7px;
+                            }
+                        }
+                    }
+                    .cards-item__circle {
+                        position: absolute;
+                        @media (max-width: 768px) {
+                            width: 16%;
+                        }
+                        &.cards-item__circle-right {
+                            top: 8px;
+                            right: 8px;
+                            @media (max-width: 768px) {
+                                top: 4px;
+                                right: 4px;
+                            }
+                        }
+                        &.cards-item__circle-right-bottom {
+                            bottom: 8px;
+                            right: 8px;
+                            transform: rotate(90deg);
+                            @media (max-width: 768px) {
+                                bottom: 4px;
+                                right: 4px;
+                            }
+                        }
+                        &.cards-item__circle-left {
+                            top: 8px;
+                            left: 8px;
+                            transform: rotate(-90deg);
+                            @media (max-width: 768px) {
+                                top: 4px;
+                                left: 4px;
+                            }
+                        }
+                        &.cards-item__circle-left-bottom {
+                            bottom: 8px;
+                            left: 8px;
+                            transform: rotate(-180deg);
+                            @media (max-width: 768px) {
+                                bottom: 4px;
+                                left: 4px;
+                            }
+                        }
+                    }
+                    .cards-item__extra {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        z-index: 5;
+                        overflow: hidden;
+                        div.extra-main {
+                            display: flex;
+                            align-items: center;
+                            width: 100px;
+                            height: 17px;
+                            position: absolute;
+                            z-index: 4;
+                            top: 15px;
+                            left: -14px;
+                            transform: rotate(-42.21deg);
+                            background: linear-gradient(227.77deg, rgba(220, 43, 25, 0) 19.26%, #DC2B19 93.74%);
+                            img {
+                                padding-left: 12px;
+                                padding-bottom: 7px;
+                                transform: rotate(30deg);
+                            }
+                            span {
+                                font-weight: bold;
+                                font-size: 13px;
+                                line-height: 160%;
+                                color: #FFFFFF;
+                            }
+                            &:before {
+                                content: '';
+                                position: absolute;
+                                z-index: 5;
+                                left: 3px;
+                                top: -3px;
+                                background: #FF4910;
+                                height: 120%;
+                                width: 4px;
+                                transform: rotate(40deg);
+                            }
+                        }
+                    }
+                    .cards-item__img {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 151px;
+                        height: 91px;
+                        margin: 38px auto 19px;
+                        @media (max-width: 768px) {
+                            width: 87px;
+                            height: 48px;
+                            margin-bottom: 9px;
+                            margin-top: 28px;
+                        }
+                        img {
+                            width: 100%;
+                        }
+                    }
+                    .cards__item-price {
+                        display: flex;
+                        flex-direction:  column;
+                        align-items: center;
+                        justify-content: center;
+                        margin-bottom: 25px;
+                        span {
+                            color: #FFFFFF;
+                            &:first-child {
+                                font-weight: bold;
+                                font-size: 30px;
+                                line-height: 160%;
+                                text-align: center;
+                                @media (max-width: 768px) {
+                                    font-size: 17px;
+                                }
+                            }
+                            &:nth-child(2) {
+                                font-size: 16px;
+                                @media (max-width: 768px) {
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+                    }
+                    .cards-item__buy {
+                        position: absolute;
+                        z-index: 7;
+                        bottom: 15px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        max-width: 154.71px;
+                        width: 100%;
+                        @media (max-width: 768px) {
+                            max-width: 98px;
+                        }
+                        a {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 100%;
+                            background: linear-gradient(90deg, #242333 0%, #3C3B53 100%);
+                            border-radius: 146px;
+                            padding: 15px 0 16px;
+                            font-weight: bold;
+                            font-size: 14px;
+                            line-height: 16px;
+                            color: #FFFFFF;
+                            text-decoration: none;
+                            &:after {
+                                content: '';
+                                position: absolute;
+                                top: -2.5px;
+                                bottom: -2.5px;
+                                left: -2.5px;
+                                right: -2.5px;
+                                background: linear-gradient(90deg,#682FBD 0%, #CB4CBC 100%);
+                                border-radius: 146px;
+                                z-index: -1;
+                            }
+                            &:hover {
+                                &:after {
+                                    top: -3.5px;
+                                    bottom: -3.5px;
+                                    left: -3.5px;
+                                    right: -3.5px;
+                                    background: linear-gradient(10deg,#682FBD 0%, #CB4CBC 100%);
+                                }
+                            }
+                            span {
+                                display: block;
+                                position: relative;
+                                margin-left: 20px;
+                                font-weight: 500;
+                                &::before {
+                                    content: '';
+                                    position: absolute;
+                                    left: -8px;
+                                    background: url(../img/cards/dollar.png);
+                                    width: 7.71px;
+                                    height: 14.86px;
+                                }
+                            }
+                            @media (max-width: 768px) {
+                                padding: 5px 0;
+                                background: linear-gradient(90deg, #682FBD 0%, #CB4CBC 100%);
+                                font-size: 11px;
+                                line-height: 13px;
+                                &::after {
+                                    display: none;
+                                }
+                            }
+                        }
+                        &._buy-coins {
+                            max-width: 178px;
+                            @media (max-width: 768px) {
+                               max-width: 107px;
+                            }
+                            a {
+                                span {
+                                    margin-left: 54px;
+                                    @media (max-width: 768px) {
+                                        margin-left: 36px;
+                                     }
+                                    &::before {
+                                        left: -30px;
+                                        top: -7px;
+                                        width: 28px;
+                                        height: 28px;
+                                        background: url(../img/cards/small_crystals.png);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .cards:target {
+            display: block;
+        }
+    }
+}
